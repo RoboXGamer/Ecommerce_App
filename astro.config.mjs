@@ -1,19 +1,17 @@
 import { defineConfig } from 'astro/config';
-
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 
+import tunnel from "astro-tunnel";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind({
+  integrations: [tailwind({
     applyBaseStyles: false
-    }),
-    react()
-  ],
+  }), react(), tunnel()],
   vite: {
     ssr: {
-      noExternal: ["@radix-ui/*"],
-    },
-  },
+      noExternal: ["@radix-ui/*"]
+    }
+  }
 });
